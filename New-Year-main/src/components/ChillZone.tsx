@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useMemo } from "react";
 import textConfig from "../textConfig";
 
 import music1 from "../music/music1.mp3";
@@ -34,11 +34,11 @@ const getGlobalAudioContainer = () => {
 };
 
 export default function ChillZone({ onNext }: ChillZoneProps) {
-  const tracks: Track[] = [
+  const tracks: Track[] = useMemo(() => [
     { id: 1, title: textConfig.chillZone.tracks[0].title, caption: textConfig.chillZone.tracks[0].caption, src: music1, cover: cover1 },
     { id: 2, title: textConfig.chillZone.tracks[1].title, caption: textConfig.chillZone.tracks[1].caption, src: music2, cover: cover2 },
     { id: 3, title: textConfig.chillZone.tracks[2].title, caption: textConfig.chillZone.tracks[2].caption, src: music3, cover: cover3 },
-  ];
+  ], []);
 
   const audioRefs = useRef<Array<HTMLAudioElement | null>>([]);
   const scrollContainerRef = useRef<HTMLDivElement>(null);
@@ -77,7 +77,7 @@ export default function ChillZone({ onNext }: ChillZoneProps) {
         setProgress(audio.duration ? audio.currentTime / audio.duration : 0);
       }
     });
-  }, []);
+  }, [tracks]);
 
   // Check scroll position
   const checkScrollPosition = () => {

@@ -1,17 +1,13 @@
-import React, { useEffect, useState } from "react";
+import { useState } from "react";
 import textConfig from "../textConfig";
 import LetterImg from "../imgs/letter.png"
 import StampSVG from "./StampSVG";
 
 interface ActivityPageProps {
-  herName?: string;
   onNext?: () => void;
 }
 
-export default function ActivityPage({
-  herName = "[Her Name]",
-  onNext
-}: ActivityPageProps) {
+export default function ActivityPage({ onNext }: ActivityPageProps) {
   const [isEnvelopeOpen, setIsEnvelopeOpen] = useState(false);
   const [showLetter, setShowLetter] = useState(false);
   const [typedSignature, setTypedSignature] = useState("");

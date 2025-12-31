@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import IntroGif from "../imgs/intro.gif"
 import IntroImg from "../imgs/intro.png"
 import textConfig from "../textConfig";

@@ -1,5 +1,5 @@
 // src/components/FinalLetter.tsx
-import React, { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Mail, Heart, Star } from "lucide-react";
 import textConfig from "../textConfig";
 
